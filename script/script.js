@@ -7,12 +7,11 @@ let period = 6;
 // alert('Я стану программистом?');
 console.log(typeof money);
 console.log(typeof income);
-console.log(typeof addExpenses);
+console.log(typeof deposit);
 console.log(addExpenses.length);
 console.log('Период равен' + ' ' + period + ' ' + 'месяцев.' + ' ' + 'Цель заработать' + ' ' + mission + ' ' + 'долларов.' + ' ');
 
-console.log(addExpenses.toLocaleLowerCase());
-console.log(addExpenses.substring());
+console.log(addExpenses.toLocaleLowerCase().split(', '));
 
 
 let budgetDay = money / 30;
