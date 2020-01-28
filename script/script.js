@@ -17,17 +17,16 @@ console.log(addExpenses.toLocaleLowerCase().split(', '));
 let budgetDay = money / 30;
 console.log(budgetDay);
 
-// Задаю вопросы
 // 2) Спрашиваем у пользователя “Ваш месячный доход?” и результат сохраняем в переменную money
 // 3) Спросить у пользователя “Перечислите возможные расходы за рассчитываемый период через запятую” сохранить в переменную addExpenses
 // 4) Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
 
-let questionOne1 = prompt('Ваш месячный доход?');
-console.log(money = questionOne1);
-let questionTwo1 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log(addExpenses = questionTwo1);
-let questionThree1 = confirm('Есть ли у вас депозит в банке?');
-console.log(deposit = questionThree1);
+money = prompt('Ваш месячный доход?');
+console.log(money);
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+console.log(addExpenses);
+deposit = confirm('Есть ли у вас депозит в банке?');
+console.log(deposit);
 
 // 5) Спросить у пользователя по 2 раза каждый вопрос и записать ответы в разные переменные 
 
