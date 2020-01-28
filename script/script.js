@@ -65,81 +65,56 @@ if (budgetDay >= 1200) {
 } else if (budgetDay >= 600 && budgetDay < 1200) {
   console.log('У вас средний уровень дохода');
 } else if (budgetDay < 600) {
-  console.log('К сожалению у вас уровень дохода ниже среднего')
+  console.log('К сожалению у вас уровень дохода ниже среднего');
 } else if (budgetDay < 0) {
   console.log('Что то пошло не так');
+}
+
+
+// 1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
+
+function getExpensesMonth() {
+  return budgetMonth;
+}
+
+console.log(getExpensesMonth());
+
+// 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
+
+function getAccumulatedMonth() {
+  return money - budgetMonth;
+}
+console.log(getExpensesMonth());
+
+// 3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth
+
+let accumulatedMonth = getAccumulatedMonth()
+
+// console.log(getAccumulatedMonth());
+
+// 4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
+
+function getTargetMonth() {
+  return mission / accumulatedMonth
+}
+console.log(getTargetMonth());
+
+// 5) Удалить из кода переменную budgetMonth
+
+// 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
+// 7) Почистить консоль логи и добавить недостающие, должны остаться:
+// - вызовы функции showTypeOf
+// - Расходы за месяц вызов getExpensesMonth
+// - Вывод возможных расходов в виде массива (addExpenses)
+// - Cрок достижения цели в месяцах (результат вызова функции getTargetMonth)
+// - Бюджет на день (budgetDay)
+// - вызов функции getStatusIncome
+
+let showTypeOf = function (data) {
+  console.log(typeof (data, typeof (data)));
 };
 
+showTypeOf(money);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // 1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
-
-// function getExpensesMonth() {
-//   return budgetMonth;
-// }
-
-// console.log(getExpensesMonth());
-
-// // 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
-
-// function getAccumulatedMonth() {
-//   return money - budgetMonth;
-// }
-// console.log(getExpensesMonth());
-
-// // 3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth
-
-// let accumulatedMonth = getAccumulatedMonth()
-
-// // console.log(getAccumulatedMonth());
-
-// // 4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
-
-// function getTargetMonth() {
-//   return mission / accumulatedMonth
-// }
-// console.log(getTargetMonth());
-
-// // 5) Удалить из кода переменную budgetMonth
-
-// // 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
-// // 7) Почистить консоль логи и добавить недостающие, должны остаться:
-// // - вызовы функции showTypeOf
-// // - Расходы за месяц вызов getExpensesMonth
-// // - Вывод возможных расходов в виде массива (addExpenses)
-// // - Cрок достижения цели в месяцах (результат вызова функции getTargetMonth)
-// // - Бюджет на день (budgetDay)
-// // - вызов функции getStatusIncome
-
-// let showTypeOf = function (data) {
-//   console.log(typeof (data, typeof (data)));
-// };
-
-// showTypeOf(money);
-
-// // 8) Проверить, чтобы все работало и не было ошибок в консоли
-// // 9) Добавить папку с четвертым уроком в свой репозиторий на GitHub
+// 8) Проверить, чтобы все работало и не было ошибок в консоли
+// 9) Добавить папку с четвертым уроком в свой репозиторий на GitHub
