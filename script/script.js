@@ -31,18 +31,17 @@ console.log(deposit);
 
 // 5) Спросить у пользователя по 2 раза каждый вопрос и записать ответы в разные переменные 
 
-let expenses1 = prompt('Введите обязательную статью расходов?');
+// let expenses1 = prompt('Введите обязательную статью расходов?');
 let amount1 = prompt('Во сколько это обойдется?');
-let expenses2 = prompt('Введите обязательную статью расходов?');
+// let expenses2 = prompt('Введите обязательную статью расходов?');
 let amount2 = prompt('Во сколько это обойдется?');
 
-console.log(amount1);
-console.log(amount2);
-
+// console.log(amount1);
+// console.log(amount2);
 
 // 6) Вычислить бюджет на месяц, учитывая обязательные расходы, сохранить в новую переменную budgetMonth и вывести результат в консоль
 
-let budgetMonth = Number(amount1) + Number(amount2);
+let budgetMonth = money - (Number(amount1) + Number(amount2));
 console.log(budgetMonth);
 
 // 7) Зная budgetMonth, посчитать за сколько месяцев будет достигнута цель mission, вывести в консоль, округляя в большую сторону (методы объекта Math в помощь)
