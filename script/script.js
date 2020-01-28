@@ -1,4 +1,4 @@
-let money = 10000; // доход за месяц-
+let money = 10000; // доход за месяц
 let income = 'Фриланс';
 let addExpenses = 'Интернет, комуналка, такси, автобус, кино';
 let deposit = true;
@@ -61,13 +61,13 @@ console.log('Дневной бюджет:' + ' ' + budgetDay);
 // Учесть варианты 0, 600 и 1200
 
 if (budgetDay >= 1200) {
-  console.log('У вас высокий уровень дохода')
+  console.log('У вас высокий уровень дохода');
 } else if (budgetDay >= 600 && budgetDay < 1200) {
-  console.log('У вас средний уровень дохода')
+  console.log('У вас средний уровень дохода');
 } else if (budgetDay < 600) {
   console.log('К сожалению у вас уровень дохода ниже среднего')
 } else if (budgetDay < 0) {
-  console.log('Что то пошло не так')
+  console.log('Что то пошло не так');
 };
 
 
@@ -113,20 +113,19 @@ if (budgetDay >= 1200) {
 
 // // 3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth
 
-// let accumulatedMonth = getAccumulatedMonth
+// let accumulatedMonth = getAccumulatedMonth()
 
-// console.log(getAccumulatedMonth());
-
+// // console.log(getAccumulatedMonth());
 
 // // 4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
 
-// function getTargetMonth(accumulatedMonth, mission) {
+// function getTargetMonth() {
 //   return mission / accumulatedMonth
 // }
 // console.log(getTargetMonth());
 
-
 // // 5) Удалить из кода переменную budgetMonth
+
 // // 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
 // // 7) Почистить консоль логи и добавить недостающие, должны остаться:
 // // - вызовы функции showTypeOf
