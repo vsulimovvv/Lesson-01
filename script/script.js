@@ -1,4 +1,4 @@
-let money = 10000;
+let money = 10000; // доход за месяц-
 let income = 'Фриланс';
 let addExpenses = 'Интернет, комуналка, такси, автобус, кино';
 let deposit = true;
@@ -24,19 +24,20 @@ console.log(budgetDay);
 money = prompt('Ваш месячный доход?');
 console.log(money);
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+addExpenses = addExpenses.toLocaleLowerCase().split(', ')
 console.log(addExpenses);
 deposit = confirm('Есть ли у вас депозит в банке?');
 console.log(deposit);
 
 // 5) Спросить у пользователя по 2 раза каждый вопрос и записать ответы в разные переменные 
 
-let expenses1 = prompt('Введите обязательную статью расходов?');
+// let expenses1 = prompt('Введите обязательную статью расходов?');
 let amount1 = prompt('Во сколько это обойдется?');
-let expenses2 = prompt('Введите обязательную статью расходов?');
+// let expenses2 = prompt('Введите обязательную статью расходов?');
 let amount2 = prompt('Во сколько это обойдется?');
 
-console.log(expenses1 = amount1);
-console.log(expenses2 = amount2);
+console.log(amount1);
+console.log(amount2);
 
 
 // 6) Вычислить бюджет на месяц, учитывая обязательные расходы, сохранить в новую переменную budgetMonth и вывести результат в консоль
@@ -66,6 +67,81 @@ if (budgetDay > 1200) {
   console.log('У вас средний уровень дохода')
 } else if (budgetDay < 600) {
   console.log('К сожалению у вас уровень дохода ниже среднего')
-} else {
+} else if (budgetDay < 0) {
   console.log('Что то пошло не так')
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // 1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
+
+// function getExpensesMonth() {
+//   return budgetMonth;
+// }
+
+// console.log(getExpensesMonth());
+
+// // 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
+
+// function getAccumulatedMonth() {
+//   return money - budgetMonth;
+// }
+// console.log(getExpensesMonth());
+
+// // 3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth
+
+// let accumulatedMonth = getAccumulatedMonth
+
+// console.log(getAccumulatedMonth());
+
+
+// // 4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
+
+// function getTargetMonth(accumulatedMonth, mission) {
+//   return mission / accumulatedMonth
+// }
+// console.log(getTargetMonth());
+
+
+// // 5) Удалить из кода переменную budgetMonth
+// // 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
+// // 7) Почистить консоль логи и добавить недостающие, должны остаться:
+// // - вызовы функции showTypeOf
+// // - Расходы за месяц вызов getExpensesMonth
+// // - Вывод возможных расходов в виде массива (addExpenses)
+// // - Cрок достижения цели в месяцах (результат вызова функции getTargetMonth)
+// // - Бюджет на день (budgetDay)
+// // - вызов функции getStatusIncome
+
+// let showTypeOf = function (data) {
+//   console.log(typeof (data, typeof (data)));
+// };
+
+// showTypeOf(money);
+
+// // 8) Проверить, чтобы все работало и не было ошибок в консоли
+// // 9) Добавить папку с четвертым уроком в свой репозиторий на GitHub
