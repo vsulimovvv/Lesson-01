@@ -5,14 +5,6 @@ let addExpenses = 'Интернет, комуналка, такси, автоб�
 let deposit = true;
 let mission = 100000;
 let period = 6;
-// alert('Я стану программистом?');
-// console.log(typeof money);
-// console.log(typeof income);
-// console.log(typeof deposit);
-// console.log(addExpenses.length);
-// console.log('Период равен' + ' ' + period + ' ' + 'месяцев.' + ' ' + 'Цель заработать' + ' ' + mission + ' ' + 'долларов.' + ' ');
-
-// console.log(addExpenses.toLocaleLowerCase().split(', '));
 
 money = +prompt('Ваш месячный доход?');
 console.log(money);
@@ -27,13 +19,11 @@ let amount1 = +prompt('Во сколько это обойдется?');
 let expenses2 = prompt('Введите обязательную статью расходов?');
 let amount2 = +prompt('Во сколько это обойдется?');
 
-// console.log(amount1);
-// console.log(amount2);
-
-
 let getExpensesMonth = function (amount1, amount2) {
   return amount1 + amount2;
 };
+
+console.log('Расходы за месяц: ' + getExpensesMonth(amount1, amount2));
 
 let getAccumulatedMonth = function (money, getExpensesMonth) {
   return money - getExpensesMonth;
