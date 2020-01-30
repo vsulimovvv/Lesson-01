@@ -31,23 +31,17 @@ let amount2 = +prompt('Во сколько это обойдется?');
 // console.log(amount2);
 
 
-let getExpensesMonth = function getExpensesMonth(amount1, amount2) {
+let getExpensesMonth = function (amount1, amount2) {
   return amount1 + amount2;
 };
 
-let getAccumulatedMonth = function getAccumulatedMonth(money, getExpensesMonth) {
+let getAccumulatedMonth = function (money, getExpensesMonth) {
   return money - getExpensesMonth;
 };
-
 console.log(getAccumulatedMonth(money, getExpensesMonth(amount1, amount2)));
 
-// 3) Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth
-
-let accumulatedMonth = function (money, getExpensesMonth) {
-  return money - getExpensesMonth;
-};
-
-console.log(accumulatedMonth(money, getExpensesMonth(amount1, amount2)));
+let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth(amount1, amount2));
+console.log(accumulatedMonth);
 
 let getTargetMonth = function getTargetMonth(mission, accumulatedMonth) {
   return mission / accumulatedMonth;
@@ -55,11 +49,8 @@ let getTargetMonth = function getTargetMonth(mission, accumulatedMonth) {
 
 console.log('Миссия будет достигнута за:' + ' ' + Math.ceil(getTargetMonth(mission, accumulatedMonth)));
 
-let budgetDay = function budgetDay(accumulatedMonth) {
-  return (Math.floor(accumulatedMonth / 30));
-};
-
-console.log('Бюджет на день:' + ' ' + budgetDay(accumulatedMonth));
+let budgetDay = Math.floor(accumulatedMonth / 30);
+console.log('Бюджет на день:' + ' ' + budgetDay);
 
 let showTypeOf = function (data) {
   console.log(data, typeof (data));
