@@ -45,14 +45,11 @@ let appData = {
   getExpensesMonth: function () {
     for (let key in appData.expenses) {
       appData.expensesMonth += appData.expenses[key];
-      console.log(appData.expensesMonth); // number
     }
   },
   getBudget: function () {
-    appData.budgetMonth = appData.money - appData.expensesMonth;
+    appData.budgetMonth = appData.budget - appData.expensesMonth;
     appData.budgetDay = appData.budgetMonth / 30;
-    console.log(appData.budgetMonth); //number 
-    console.log(appData.budgetDay);
   },
   getTargetMonth: function () {
     return appData.mission / appData.budgetMonth;
@@ -71,9 +68,9 @@ let appData = {
 };
 
 appData.asking();
-appData.getExpensesMonth();
+console.log('Расходы за месяц: ' + appData.expensesMonth);
 appData.getBudget();
-console.log(appData.getTargetMonth());
+console.log('Период достижения цели: ' + Math.ceil(appData.getTargetMonth()));
 console.log(appData.getStatusIncome());
 
 // for (let key in appData) {
