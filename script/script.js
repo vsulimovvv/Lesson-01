@@ -39,7 +39,6 @@ let appData = {
       }
       while (!isNumber(expenses2));
       appData.expenses[expenses1] = +expenses2;
-      console.log(appData.expenses);
     }
   },
   getExpensesMonth: function () {
@@ -49,7 +48,7 @@ let appData = {
   },
   getBudget: function () {
     appData.budgetMonth = appData.budget - appData.expensesMonth;
-    appData.budgetDay = appData.budgetMonth / 30;
+    appData.budgetDay = Math.floor(appData.budgetMonth / 30);
   },
   getTargetMonth: function () {
     return appData.mission / appData.budgetMonth;
@@ -68,28 +67,12 @@ let appData = {
 };
 
 appData.asking();
+appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + appData.expensesMonth);
 appData.getBudget();
 console.log('Период достижения цели: ' + Math.ceil(appData.getTargetMonth()));
 console.log(appData.getStatusIncome());
 
-// for (let key in appData) {
-//   console.log('Наша программа включает в себя данные: ' + key + 'Значение: ' + appData[key]);
-// }
-
-// console.log(typeof appData.income);
-// console.log(typeof appData.addIncome);
-// console.log(typeof appData.expenses);
-// console.log(typeof appData.addExpenses);
-// console.log(typeof appData.deposit);
-// console.log(typeof appData.mission);
-// console.log(typeof appData.period);
-// console.log(typeof appData.budget);
-// console.log(typeof appData.budgetDay);
-// console.log(typeof appData.budgetMonth);
-// console.log(typeof appData.expensesMonth);
-// console.log(typeof appData.asking);
-// console.log(typeof appData.getExpensesMonth);
-// console.log(typeof appData.getBudget);
-// console.log(typeof appData.getTargetMonth);
-// console.log(typeof appData.getStatusIncome);
+for (let key in appData) {
+  console.log(key + ': ', appData[key]);
+}
