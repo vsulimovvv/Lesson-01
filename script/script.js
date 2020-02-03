@@ -23,7 +23,7 @@ let appData = {
   deposit: false,
   mission: 50000,
   period: 3,
-  budget: money,
+  budget: +money,
   budgetDay: 0,
   budgetMonth: 0,
   expensesMonth: 0,
@@ -45,25 +45,26 @@ let appData = {
   getExpensesMonth: function () {
     for (let key in appData.expenses) {
       appData.expensesMonth += appData.expenses[key];
-       console.log(appData.expensesMonth);
+      console.log(appData.expensesMonth); // number
     }
   },
   getBudget: function () {
     appData.budgetMonth = appData.money - appData.expensesMonth;
     appData.budgetDay = appData.budgetMonth / 30;
-    console.log(appData.budgetMonth);
+    console.log(appData.budgetMonth); //number 
+    console.log(appData.budgetDay);
   },
-  getTargetMonth: function (mission, accumulatedMonth) {
-    return mission / accumulatedMonth;
+  getTargetMonth: function () {
+    return appData.mission / appData.budgetMonth;
   },
-  getStatusIncome: function (budgetDay) {
-    if (budgetDay >= 1200) {
+  getStatusIncome: function () {
+    if (appData.budgetDay >= 1200) {
       return ('У вас высокий уровень дохода');
-    } else if (budgetDay >= 600 && budgetDay < 1200) {
+    } else if (appData.budgetDay >= 600 && appData.budgetDay < 1200) {
       return ('У вас средний уровень дохода');
-    } else if (budgetDay < 600) {
+    } else if (appData.budgetDay < 600) {
       return ('К сожалению у вас уровень дохода ниже среднего');
-    } else if (budgetDay < 0) {
+    } else if (appData.budgetDay < 0) {
       return ('Что то пошло не так');
     }
   }
@@ -78,3 +79,20 @@ console.log(appData.getStatusIncome());
 // for (let key in appData) {
 //   console.log('Наша программа включает в себя данные: ' + key + 'Значение: ' + appData[key]);
 // }
+
+// console.log(typeof appData.income);
+// console.log(typeof appData.addIncome);
+// console.log(typeof appData.expenses);
+// console.log(typeof appData.addExpenses);
+// console.log(typeof appData.deposit);
+// console.log(typeof appData.mission);
+// console.log(typeof appData.period);
+// console.log(typeof appData.budget);
+// console.log(typeof appData.budgetDay);
+// console.log(typeof appData.budgetMonth);
+// console.log(typeof appData.expensesMonth);
+// console.log(typeof appData.asking);
+// console.log(typeof appData.getExpensesMonth);
+// console.log(typeof appData.getBudget);
+// console.log(typeof appData.getTargetMonth);
+// console.log(typeof appData.getStatusIncome);
