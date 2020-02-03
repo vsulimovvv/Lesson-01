@@ -42,15 +42,17 @@ let appData = {
       console.log(appData.expenses);
     }
   },
-  //   8) Переписать метод getExpensesMonth: с помощью цикла считаем сумму всех обязательных расходов и сохраняем результат в свойство expensesMonth нашего объекта  для того, чтобы посчитать сумму используйте цикл for in
   getExpensesMonth: function () {
     for (let key in appData.expenses) {
-      appData.expensesMonth = key[appData.espenses2];
-      console.log(appData.expensesMonth);
+      appData.expensesMonth += appData.expenses2[key];
+      // console.log(appData.expensesMonth);
     }
   },
-  getAccumulatedMonth: function () {
-    return money - expensesAmount;
+  getBudget: function () {
+    appData.budgetMonth = appData.money - appData.expensesMonth;
+    appData.budgetDay = appData.budgetMonth / 30;
+    // console.log()
+
   },
   getTargetMonth: function (mission, accumulatedMonth) {
     return mission / accumulatedMonth;
@@ -69,19 +71,12 @@ let appData = {
 };
 
 appData.asking();
+appData.getExpensesMonth();
+appData.getBudget();
+appData.getTargetMonth();
+appData.getStatusIncome();
 
-// let expensesAmount = appData.getExpensesMonth();
-// console.log('Расходы за месяц: ' + expensesAmount);
-
-// let accumulatedMonth = appData.getAccumulatedMonth(money, expensesAmount);
-
-// if (appData.getTargetMonth(appData.mission, accumulatedMonth) < 0) {
-//   console.log('Цель не будет достигнута');
-// } else {
-//   console.log('Миссия будет достигнута за:' + ' ' + Math.ceil(appData.getTargetMonth(appData.mission, accumulatedMonth)));
+// for (let key in appData) {
+//   console.log('Наша программа включает в себя данные: ' + key + 'Значение: ' + appData[key]);
 // }
 
-// let budgetDay = Math.floor(accumulatedMonth / 30);
-// console.log('Бюджет на день:' + ' ' + budgetDay);
-
-// console.log(appData.getStatusIncome(budgetDay));
