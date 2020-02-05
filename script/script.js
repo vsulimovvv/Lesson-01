@@ -15,9 +15,12 @@ let money,
 
 start();
 
-let reg = /^[а-яё\s]+$/ig;
-let reg2 = /^[а-яё\s,]+$/ig ;
-// let str;
+// let reg = /^[а-яё\s]+$/ig;
+// let reg2 = /^[а-яё\s,]+$/ig;
+
+let isString = function (str) {
+  return /^[а-яё\s,]+$/ig.test(str);
+};
 
 let appData = {
   income: {},
@@ -35,10 +38,12 @@ let appData = {
   moneyDeposit: 0,
   asking: function () {
     if (confirm('Есть ли у вас дополнительный источник заработка?')) {
+
       let itemIncome;
       do {
         itemIncome = prompt('Какой у вас дополнительный заработок?', 'Таксую');
-      } while (!reg.test(itemIncome));
+      } while (!isString(itemIncome));
+
       let cashIncome;
       do {
         cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
@@ -49,15 +54,18 @@ let appData = {
     let addExpenses;
     do {
       addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-    } while (!reg2.test(addExpenses));
-    
+      appData.addExpenses = addExpenses.split(',');
+    } while (!isString(addExpenses));
 
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
+
     for (let i = 0; i < 2; i++) {
+
       let expenses1;
       do {
-        expenses1 = prompt('Введите обязательную статью расходов?', 'квартира');
-      } while (!reg.test(expenses1));
+        expenses1 = prompt('Введите обязательную статью расходов?', 'машина');
+      } while (!isString(expenses1));
+
       let expenses2;
       do {
         expenses2 = prompt('Во сколько это обойдется?', 10000);
@@ -113,22 +121,20 @@ console.log('Расходы за месяц: ' + appData.expensesMonth);
 appData.getBudget();
 console.log('Период достижения цели: ' + Math.ceil(appData.getTargetMonth()));
 console.log(appData.getStatusIncome());
-// console.log(appData.persentDeposit, appData.moneyDeposit);
 appData.getInfoDeposit();
 
 for (let key in appData) {
   console.log(key + ': ', appData[key]);
 }
 
-addExpenses = addExpenses.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-
+console.log(appData.addExpenses.join(',').split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)));
 
 // кнопка рассчитать
 // let start = document.getElementById('start');
 
-// // + через Tag
-// // let incomeAdd = document.getElementsByTagName('income_add');
-// // let incomeAdd = document.getElementsByTagName('button');
+// + через Tag
+// let incomeAdd = document.getElementsByTagName('income_add');
+// let incomeAdd = document.getElementsByTagName('button');
 // let incomeAdd = document.querySelector('button');
 // // let expensesAdd = document.getElementsByTagName('expenses_add');
 // // let expensesAdd = document.getElementsByTagName('button');
