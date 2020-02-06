@@ -127,60 +127,54 @@ for (let key in appData) {
   console.log(key + ': ', appData[key]);
 }
 
-// console.log(appData.addExpenses.join(',').split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)));
-// let arr = ['МАШИНА', 'КВАРТИРА', 'САДИК'];
-// console.log(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase()));
-// console.log(String(appData.addExpenses.join(', ')));
-
-// console.log(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase()));
 console.log(String(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase())));
 
 // кнопка рассчитать
-// let start = document.getElementById('start');
+let calc = document.getElementById('start');
 
 // + через Tag
 // let incomeAdd = document.getElementsByTagName('income_add');
 // let incomeAdd = document.getElementsByTagName('button');
-// let incomeAdd = document.querySelector('button');
-// // let expensesAdd = document.getElementsByTagName('expenses_add');
-// // let expensesAdd = document.getElementsByTagName('button');
-// let expensesAdd = document.querySelector('button');
-// console.log(incomeAdd); //
-// console.log(expensesAdd); //
-// // checkbox
-// let checkBox = document.querySelector('#deposit-check');
-// // Поля для ввода возможных доходов
-// let incomeItem = document.querySelectorAll('.additional_income-item');
-// // Каждый элемент в правой части программы через класс, которые имеют в имени класса "-value"
-// // Доход за месяц
-// let budgetMonthValue = document.querySelector('.budget_month-value');
-// // Дневной бюджет
-// let budgetDayValue = document.querySelector('.budget_day-value');
-// // Расход за месяц
-// let expensesMonthValue = document.querySelector('.expenses_month-value');
-// // Возможные доходы
-// let additionalIncomeValue = document.querySelector('.additional_income-value');
-// // Возможные расходы
-// let additionalExpensesValue = document.querySelector('.additional_expenses-value');
-// // Накопления за период
-// let incomePeriodValue = document.querySelector('.income_period-value');
-// // Срок достижения цели в месяцах
-// let targetMonthValue = document.querySelector('.target_month-value');
+let incomeAdd = document.querySelector('button');
+// let expensesAdd = document.getElementsByTagName('expenses_add');
+// let expensesAdd = document.getElementsByTagName('button');
+let expensesAdd = document.querySelector('button');
+console.log(incomeAdd); //
+console.log(expensesAdd); //
+// checkbox
+let checkBox = document.querySelector('#deposit-check');
+// Поля для ввода возможных доходов
+let incomeItem = document.querySelectorAll('.additional_income-item');
+// Каждый элемент в правой части программы через класс, которые имеют в имени класса "-value"
+// Доход за месяц
+let budgetMonthValue = document.querySelector('.budget_month-value');
+// Дневной бюджет
+let budgetDayValue = document.querySelector('.budget_day-value');
+// Расход за месяц
+let expensesMonthValue = document.querySelector('.expenses_month-value');
+// Возможные доходы
+let additionalIncomeValue = document.querySelector('.additional_income-value');
+// Возможные расходы
+let additionalExpensesValue = document.querySelector('.additional_expenses-value');
+// Накопления за период
+let incomePeriodValue = document.querySelector('.income_period-value');
+// Срок достижения цели в месяцах
+let targetMonthValue = document.querySelector('.target_month-value');
 
-// // поля ввода (input) с левой стороны
-// let salaryAmount = document.querySelector('.salary-amount');
-// let incomeTitle = document.querySelector('.income-title');
-// let incomeAmount = document.querySelector('.income-amount');
+// поля ввода (input) с левой стороны
+let salaryAmount = document.querySelector('.salary-amount');
+let incomeTitle = document.querySelector('.income-title');
+let incomeAmount = document.querySelector('.income-amount');
 
-// // использовать querySelectorAll?
-// let additionalIncomeItem = document.querySelector('.additional_income-item');
-// let additionalIncomeItem2 = document.querySelector('.additional_income-item');
-// //
-// let expensesTitle = document.querySelector('.expenses-title');
-// let expensesAmount = document.querySelector('.expenses-amount');
-// let additionalExpensesItem = document.querySelector('.additional_expenses-item');
-// let targetAmount = document.querySelector('.target-amount');
-// // range
-// let myRange = document.querySelector('.period-select');
-// // кнопка отмены
-// let cancel = document.getElementById('cancel');
+// использовать querySelectorAll?
+let additionalIncomeItem = document.querySelector('.additional_income-item');
+let additionalIncomeItem2 = document.querySelector('.additional_income-item');
+//
+let expensesTitle = document.querySelector('.expenses-title');
+let expensesAmount = document.querySelector('.expenses-amount');
+let additionalExpensesItem = document.querySelector('.additional_expenses-item');
+let targetAmount = document.querySelector('.target-amount');
+// range
+let myRange = document.querySelector('.period-select');
+// кнопка отмены
+let cancel = document.getElementById('cancel');
