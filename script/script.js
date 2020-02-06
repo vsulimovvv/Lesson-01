@@ -127,7 +127,13 @@ for (let key in appData) {
   console.log(key + ': ', appData[key]);
 }
 
-console.log(appData.addExpenses.join(',').split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)));
+// console.log(appData.addExpenses.join(',').split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)));
+// let arr = ['МАШИНА', 'КВАРТИРА', 'САДИК'];
+// console.log(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase()));
+// console.log(String(appData.addExpenses.join(', ')));
+
+// console.log(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase()));
+console.log(String(appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase())));
 
 // кнопка рассчитать
 // let start = document.getElementById('start');
