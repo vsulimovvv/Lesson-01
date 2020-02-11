@@ -34,14 +34,6 @@ let btnPlus = document.getElementsByTagName('button'),
   cancel = document.getElementById('cancel'),
   incomeItem = document.querySelectorAll('.income-items');
 
-// console.log(typeof budgetMonthValue);
-// console.log(typeof budgetDayValue);
-// console.log(typeof expensesMonthValue);
-// console.log(typeof additionalIncomeValue);
-// console.log(typeof additionalExpensesValue);
-// console.log(typeof incomePeriodValue);
-// console.log(typeof targetMonthValue);
-
 let isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
@@ -64,18 +56,11 @@ let appData = {
   persentDeposit: 0,
   moneyDeposit: 0,
   start: function () {
-
-    // if (salaryAmount.value === '') {
-    //   alert('Ошибка, поле "Месячный доход" должно быть заполнено!');
-    //   return;
-    // }
-
     if (salaryAmount.value === '') {
       calc.disabled = true;
       console.log('empty');
       return;
     }
-
     appData.budget = +salaryAmount.value;
 
     appData.getExpenses();
@@ -132,9 +117,12 @@ let appData = {
       let itemIncome = item.querySelector('.income-title').value;
       let cashIncome = item.querySelector('.income-amount').value;
       if (itemIncome !== '' && cashIncome !== '') {
-        appData.income[itemIncome] = cashIncome;
+        appData.income[itemIncome] = +cashIncome;
       }
     });
+    for (let key in appData.income) {
+      appData.incomeMonth += appData.income[key];
+    }
   },
   getAddExpenses: function () {
     let addExpenses = additionalExpensesItem.value.split(',');
@@ -155,7 +143,7 @@ let appData = {
   },
   getExpensesMonth: function () {
     for (let key in appData.expenses) {
-      appData.expensesMonth += appData.expenses[key];
+      appData.expensesMonth += +appData.expenses[key];
     }
   },
   getBudget: function () {
@@ -203,10 +191,6 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 
 periodSelect.addEventListener('input', appData.calcMonth);
 
-// console.log(typeof appData.budgetMonth); // number
-// console.log(typeof appData.budget); // number
-// console.log(typeof appData.incomeMonth); // number
-// console.log(typeof appData.expensesMonth); // number
 
 
 
