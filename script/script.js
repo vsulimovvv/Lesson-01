@@ -57,19 +57,19 @@ let appData = {
   moneyDeposit: 0,
   start: function () {
 
-    appData.budget = +salaryAmount.value;
+    this.budget = +salaryAmount.value;
 
-    appData.blockStart();
-    appData.getExpenses();
-    appData.getIncome();
+    this.blockStart();
+    this.getExpenses();
+    this.getIncome();
 
-    appData.getExpensesMonth();
-    appData.getAddExpenses();
-    appData.getAddIncome();
-    appData.getIncome();
-    appData.getBudget();
+    this.getExpensesMonth();
+    this.getAddExpenses();
+    this.getAddIncome();
+    this.getIncome();
+    this.getBudget();
 
-    appData.showResult();
+    this.showResult();
   },
   blockStart: function () {
     calc.setAttribute('disabled', 1);
@@ -85,15 +85,15 @@ let appData = {
     });
   },
   showResult: function () {
-    budgetMonthValue.value = appData.budgetMonth;
-    budgetDayValue.value = appData.budgetDay;
-    expensesMonthValue.value = appData.expensesMonth;
-    additionalExpensesValue.value = appData.addExpenses.join(', ');
-    additionalIncomeValue.value = appData.addIncome.join(', ');
-    targetMonthValue.value = Math.ceil(appData.getTargetMonth()); // в большую сторону
-    incomePeriodValue.value = appData.calcPeriod();
+    budgetMonthValue.value = this.budgetMonth;
+    budgetDayValue.value = this.budgetDay;
+    expensesMonthValue.value = this.expensesMonth;
+    additionalExpensesValue.value = this.addExpenses.join(', ');
+    additionalIncomeValue.value = this.addIncome.join(', ');
+    targetMonthValue.value = Math.ceil(this.getTargetMonth()); // в большую сторону
+    incomePeriodValue.value = this.calcPeriod();
     periodSelect.addEventListener('input', function () {
-      incomePeriodValue.value = appData.calcPeriod();
+      incomePeriodValue.value = this.calcPeriod();
     });
   },
   addExpensesBlock: function () {
@@ -156,50 +156,49 @@ let appData = {
     }
   },
   getBudget: function () {
-    appData.budgetMonth = appData.budget + appData.incomeMonth - appData.expensesMonth;
-    appData.budgetDay = Math.floor(appData.budgetMonth / 30);
+    this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth;
+    this.budgetDay = Math.floor(this.budgetMonth / 30);
   },
   getTargetMonth: function () {
-    return targetAmount.value / appData.budgetMonth;
+    return targetAmount.value / this.budgetMonth;
   },
   getStatusIncome: function () {
-    if (appData.budgetDay >= 1200) {
+    if (this.budgetDay >= 1200) {
       return ('У вас высокий уровень дохода');
-    } else if (appData.budgetDay >= 600 && appData.budgetDay < 1200) {
+    } else if (this.budgetDay >= 600 && this.budgetDay < 1200) {
       return ('У вас средний уровень дохода');
-    } else if (appData.budgetDay < 600) {
+    } else if (this.budgetDay < 600) {
       return ('К сожалению у вас уровень дохода ниже среднего');
-    } else if (appData.budgetDay < 0) {
+    } else if (this.budgetDay < 0) {
       return ('Что то пошло не так');
     }
   },
 
   getInfoDeposit: function () {
-    if (appData.deposit) {
+    if (this.deposit) {
       do {
-        appData.persentDeposit = prompt('Какой годовой процент?', '10');
-      } while (!isNumber(appData.persentDeposit));
+        this.persentDeposit = prompt('Какой годовой процент?', '10');
+      } while (!isNumber(this.persentDeposit));
       do {
-        appData.moneyDeposit = prompt('Какая сумма заложена?', 10000);
+        this.moneyDeposit = prompt('Какая сумма заложена?', 10000);
       }
-      while (!isNumber(appData.moneyDeposit));
+      while (!isNumber(this.moneyDeposit));
     }
   },
   calcPeriod: function () {
-    return (appData.budgetMonth * periodSelect.value);
+    return (this.budgetMonth * periodSelect.value);
   },
   calcMonth: function () {
     periodAmount.innerHTML = periodSelect.value;
   }
 };
 
-calc.addEventListener('click', appData.start);
+calc.addEventListener('click', appData.start.bind(appData));
 
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 
 periodSelect.addEventListener('input', appData.calcMonth);
-
 
 
 
