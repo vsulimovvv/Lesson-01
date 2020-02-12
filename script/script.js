@@ -56,13 +56,10 @@ let appData = {
   persentDeposit: 0,
   moneyDeposit: 0,
   start: function () {
-    if (salaryAmount.value === '') {
-      calc.disabled = true;
-      console.log('empty');
-      return;
-    }
+
     appData.budget = +salaryAmount.value;
 
+    appData.blockStart();
     appData.getExpenses();
     appData.getIncome();
 
@@ -74,6 +71,19 @@ let appData = {
 
     appData.showResult();
   },
+  blockStart: function () {
+    calc.setAttribute('disabled', 1);
+    calc.style.cssText = `cursor: not-allowed`;
+    salaryAmount.addEventListener('input', e => {
+      if (e.target.value.trim() !== '') {
+        calc.removeAttribute('disabled');
+        calc.style.cssText = `cursor: pointer`;
+      } else {
+        calc.setAttribute('disabled', 1);
+        calc.style.cssText = `cursor: not-allowed`;
+      }
+    });
+  },
   showResult: function () {
     budgetMonthValue.value = appData.budgetMonth;
     budgetDayValue.value = appData.budgetDay;
@@ -82,10 +92,9 @@ let appData = {
     additionalIncomeValue.value = appData.addIncome.join(', ');
     targetMonthValue.value = Math.ceil(appData.getTargetMonth()); // в большую сторону
     incomePeriodValue.value = appData.calcPeriod();
-    periodSelect.addEventListener('change', function () {
+    periodSelect.addEventListener('input', function () {
       incomePeriodValue.value = appData.calcPeriod();
     });
-
   },
   addExpensesBlock: function () {
     let cloneExpensesItems = expensesItems[0].cloneNode(true);
