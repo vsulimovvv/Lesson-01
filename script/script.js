@@ -38,9 +38,8 @@ let btnPlus = document.getElementsByTagName('button'),
   expensesTitle = document.querySelectorAll('.expenses-title'),
   classData = document.querySelector('.data'),
   inputTypeText = classData.querySelectorAll('input[type="text"]'),
-  resultTotal = document.querySelector('.result-total');
-// valueAll = classValue.querySelectorAll('value');
-
+  resultTotal = document.querySelectorAll('.result-total'),
+  allInput = document.querySelectorAll('input');
 
 let isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -97,7 +96,6 @@ let appData = {
     this.showResult();
 
     this.changeButton();
-    // this.reset();
   },
 
   showResult: function () {
@@ -224,32 +222,20 @@ let appData = {
     appData.expensesMonth = 0;
     appData.persentDeposit = 0;
     appData.moneyDeposit = 0;
-    // resultTotal.value.style.innerHTML = '0';
-    // budgetMonthValue.value =
-    //   budgetDayValue.value =
-    //   additionalExpensesValue.value =
-    //   additionalIncomeValue.value =
-    //   targetMonthValue.value =
-    //   incomePeriodValue.value =
-    //   incomePeriodValue.value =
 
+    for (let i = 0; i < allInput.length; i++) {
+      allInput[i].value = '';
+    }
+
+    // for (let i = 0; i < appData.length; i++) {
+    //   appData[i].value = '';
+    // }
+
+    // for (let i = 0; i < resultTotal.length; i++) {
+    //   resultTotal[i].value = '';
+    // }
   }
 };
-
-for (let key in appData) {
-  console.log(appData[key]);
-}
-
-for (let i = 0; i < resultTotal.length; i++) {
-  console.log(resultTotal[i]);
-
-}
-
-// appData.forEach(function (item) {
-//   console.log(resultTotal.push(item));
-// });
-
-
 
 appData.blockStart();
 
