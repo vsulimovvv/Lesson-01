@@ -227,6 +227,12 @@ let appData = {
       allInput[i].value = '';
     }
 
+    for (let item of inputTypeText) {
+      item.disabled = false;
+    }
+
+    calc.style.cssText = ' display: block';
+    cancel.style.cssText = ' display: none';
     // for (let i = 0; i < appData.length; i++) {
     //   appData[i].value = '';
     // }
