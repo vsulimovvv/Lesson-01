@@ -89,7 +89,6 @@ let appData = {
     this.getExpensesMonth();
     this.getAddExpenses();
     this.getAddIncome();
-    this.getIncome();
     this.getBudget();
 
     this.showResult();
@@ -98,13 +97,9 @@ let appData = {
   },
 
   showResult: function () {
-    budgetMonthValue.value = this.budget;
-    // console.log(this.budget);
+    budgetMonthValue.value = this.budgetMonth;
     budgetDayValue.value = this.budgetDay;
-    // console.log(this.budgetDay);
     expensesMonthValue.value = this.expensesMonth;
-    // console.log(this.expensesMonth);
-    // console.log(expensesMonthValue.value);
     additionalExpensesValue.value = this.addExpenses.join(', ');
     additionalIncomeValue.value = this.addIncome.join(', ');
     targetMonthValue.value = Math.ceil(this.getTargetMonth()); // в большую сторону
