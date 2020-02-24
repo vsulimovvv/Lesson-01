@@ -277,7 +277,7 @@ AppData.prototype.eventsListeners = function () {
 };
 
 const appData = new AppData();
-const eventsListeners = new EventsListeners();
+appData.eventsListeners();
 
 console.log(appData);
 
