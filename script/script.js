@@ -40,11 +40,11 @@ let btnPlus = document.getElementsByTagName('button'),
   resultTotal = document.querySelectorAll('.result-total'),
   allInput = document.querySelectorAll('input');
 
-let isNumber = function (n) {
+const isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-let isString = function (str) {
+const isString = function (str) {
   return /^[а-яё\s,]+$/ig.test(str);
 };
 
@@ -78,7 +78,6 @@ AppData.prototype.blockStart = function () {
 };
 
 AppData.prototype.start = function () {
-
   for (let item of inputTypeText) {
     item.disabled = true;
   }
@@ -111,7 +110,7 @@ AppData.prototype.showResult = function () {
   });
 };
 AppData.prototype.addExpensesBlock = function () {
-  let cloneExpensesItems = expensesItems[0].cloneNode(true);
+  const cloneExpensesItems = expensesItems[0].cloneNode(true);
 
   expensesItems[0].parentNode.insertBefore(cloneExpensesItems, expensesPlus);
   expensesItems = document.querySelectorAll('.expenses-items');
@@ -121,7 +120,7 @@ AppData.prototype.addExpensesBlock = function () {
   }
 };
 AppData.prototype.addIncomeBlock = function () {
-  let cloneIncomeItems = incomeItems[0].cloneNode(true);
+  const cloneIncomeItems = incomeItems[0].cloneNode(true);
 
   incomeItems[0].parentNode.insertBefore(cloneIncomeItems, incomePlus);
   incomeItems = document.querySelectorAll('.income-items');
@@ -145,8 +144,8 @@ AppData.prototype.getExpenses = function () {
 AppData.prototype.getIncome = function () {
   const _this = this;
   incomeItems.forEach(function (item) {
-    let itemIncome = item.querySelector('.income-title').value;
-    let cashIncome = item.querySelector('.income-amount').value;
+    const itemIncome = item.querySelector('.income-title').value;
+    const cashIncome = item.querySelector('.income-amount').value;
     if (itemIncome !== '' && cashIncome !== '') {
       appData.income[itemIncome] = +cashIncome;
     }
@@ -157,7 +156,7 @@ AppData.prototype.getIncome = function () {
 };
 AppData.prototype.getAddExpenses = function () {
   const _this = this;
-  let addExpenses = additionalExpensesItem.value.split(',');
+  const addExpenses = additionalExpensesItem.value.split(',');
 
   addExpenses.forEach(function (item) {
     item = item.trim();
@@ -264,7 +263,6 @@ AppData.prototype.reset = function () {
   });
   incomePlus.style.display = 'block';
 };
-
 
 AppData.prototype.eventsListeners = function () {
   calc.addEventListener('click', this.start.bind(appData));
