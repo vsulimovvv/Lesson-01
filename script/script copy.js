@@ -77,11 +77,6 @@ class AppData {
     });
   }
   start() {
-
-    for (let item of inputTypeText) {
-      item.disabled = true;
-    }
-
     this.budget = +salaryAmount.value;
 
     this.getExpenses();
@@ -95,6 +90,14 @@ class AppData {
     this.showResult();
 
     this.changeButton();
+
+    this.blockInput();
+  }
+  blockInput() {
+    for (let item of inputTypeText) {
+      item.disabled = true;
+    }
+
   }
   showResult() {
     budgetMonthValue.value = this.budgetMonth;
@@ -259,6 +262,8 @@ class AppData {
     incomePlus.style.display = 'block';
   }
   eventsListeners() {
+    // salaryAmount.addEventListener('input', this.start.bind(appData));
+
     calc.addEventListener('click', this.start.bind(appData));
     cancel.addEventListener('click', this.reset.bind(appData));
 
@@ -268,7 +273,13 @@ class AppData {
     periodSelect.addEventListener('input', this.calcMonth);
   }
 }
+// salaryAmount.addEventListener('input', function (event) {
+//   if (isNumber(event.input) !== true) {
+//    event.preventDefault();
+//   }
+// });
 
 const appData = new AppData();
+
 appData.eventsListeners();
 appData.blockStart();
