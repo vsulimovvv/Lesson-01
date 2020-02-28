@@ -162,7 +162,7 @@ class AppData {
     addExpenses.forEach(function (item) {
       item = item.trim();
       if (item !== '') {
-        appData.addExpenses.push(item);
+        this.addExpenses.push(item);
       }
     });
   }
@@ -170,7 +170,7 @@ class AppData {
     additionalIncomeItem.forEach(function (item) {
       let itemValue = item.value.trim();
       if (itemValue !== '') {
-        appData.addIncome.push(itemValue);
+        this.addIncome.push(itemValue);
       }
     });
   }
@@ -219,18 +219,18 @@ class AppData {
     cancel.style.cssText = ' display: block';
   }
   reset() {
-    appData.income = {};
-    appData.incomeMonth = 0;
-    appData.addIncome = [];
-    appData.expenses = [];
-    appData.addExpenses = [];
-    appData.deposit = false;
-    appData.budget = 0;
-    appData.budgetDay = 0;
-    appData.budgetMonth = 0;
-    appData.expensesMonth = 0;
-    appData.persentDeposit = 0;
-    appData.moneyDeposit = 0;
+    this.income = {};
+    this.incomeMonth = 0;
+    this.addIncome = [];
+    this.expenses = [];
+    this.addExpenses = [];
+    this.deposit = false;
+    this.budget = 0;
+    this.budgetDay = 0;
+    this.budgetMonth = 0;
+    this.expensesMonth = 0;
+    this.persentDeposit = 0;
+    this.moneyDeposit = 0;
 
     for (let i = 0; i < allInput.length; i++) {
       allInput[i].value = '';
