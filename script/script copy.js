@@ -92,12 +92,14 @@ class AppData {
     this.changeButton();
 
     this.blockInput();
+
+    this.blockInputValue();
   }
   blockInput() {
+    inputTypeText = classData.querySelectorAll('input[type="text"]');
     for (let item of inputTypeText) {
       item.disabled = true;
     }
-
   }
   showResult() {
     budgetMonthValue.value = this.budgetMonth;
@@ -261,9 +263,23 @@ class AppData {
     });
     incomePlus.style.display = 'block';
   }
+  blockInputValue() {
+    let placeName = classData.querySelectorAll('input[placeholder=Наименование]');
+    placeName.forEach(function (item) {
+      item.addEventListener('input', function () {
+        item.value = item.value.replace(/[^А-Яа-я\s]/, '');
+      });
+    });
+  }
+  blockSumValue() {
+    let placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
+    placeSum.forEach(function (item) {
+      item.addEventListener('input', function () {
+        item.value = item.value.replace(/[^0-9]/, '');
+      });
+    });
+  }
   eventsListeners() {
-    // salaryAmount.addEventListener('input', this.start.bind(appData));
-
     calc.addEventListener('click', this.start.bind(appData));
     cancel.addEventListener('click', this.reset.bind(appData));
 
@@ -273,13 +289,11 @@ class AppData {
     periodSelect.addEventListener('input', this.calcMonth);
   }
 }
-// salaryAmount.addEventListener('input', function (event) {
-//   if (isNumber(event.input) !== true) {
-//    event.preventDefault();
-//   }
-// });
 
 const appData = new AppData();
 
 appData.eventsListeners();
 appData.blockStart();
+
+appData.blockInputValue();
+appData.blockSumValue()
