@@ -307,6 +307,7 @@ class AppData {
   // }
 
   changePercent() {
+
     const valueSelect = this.value;
     if (valueSelect === 'other') {
       depositPercent.style.display = 'inline-block';
@@ -318,16 +319,14 @@ class AppData {
   }
 
   checkPercent() {
-    if (depositPercent.value <= 0 && depositPercent.value <= 100) {
+    depositPercent.addEventListener('input', function () {
+      depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
+    });
+    if (depositPercent.value >= 0 || depositPercent.value <= 100) {
       alert("Введите корректное значение в поле проценты");
-      this.blockStart();
-      // } else if (depositPercent.value === '') {
-      // alert("Введите корректное значение в поле проценты");
-      // this.blockStart();
-    } else if (depositPercent.value.typeof === 'string') {
-      alert("Введите корректное значение в поле проценты");
-      this.blockStart();
+      appData.blockStart();
     }
+    depositPercent.addEventListener('input', this.checkPercent);
   }
 
   depositHundler() {
@@ -349,9 +348,6 @@ class AppData {
     calc.addEventListener('click', this.start.bind(this));
     cancel.addEventListener('click', this.reset.bind(this));
 
-    // depositPercent.addEventListener('input', this.checkPercent.bind(this));
-    depositPercent.addEventListener('click', this.checkPercent.bind(this));
-
     expensesPlus.addEventListener('click', this.addExpensesBlock);
     incomePlus.addEventListener('click', this.addIncomeBlock);
 
@@ -363,8 +359,10 @@ class AppData {
 
 const appData = new AppData();
 
+appData.checkPercent();
+
 appData.eventsListeners();
 appData.blockStart();
 
 appData.blockInputValue();
-appData.blockSumValue()
+appData.blockSumValue();
