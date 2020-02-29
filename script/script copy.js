@@ -45,11 +45,11 @@ let calc = document.getElementById('start'),
   inputTypeText = classData.querySelectorAll('input[type="text"]');
 
 
-const isNumber = function (n) {
+const isNumber = (n) => {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-const isString = function (str) {
+const isString = (str) => {
   return /^[а-яё\s,]+$/ig.test(str);
 };
 
@@ -153,7 +153,7 @@ class AppData {
     });
   }
   getIncome() {
-    incomeItems.forEach(function (item) {
+    incomeItems.forEach((item) => {
       const itemIncome = item.querySelector('.income-title').value;
       const cashIncome = item.querySelector('.income-amount').value;
       if (itemIncome !== '' && cashIncome !== '') {
@@ -264,7 +264,7 @@ class AppData {
   blockInputValue() {
     const placeName = classData.querySelectorAll('input[placeholder=Наименование]');
     placeName.forEach((item) => {
-      item.addEventListener('input', function () {
+      item.addEventListener('input', () => {
         item.value = item.value.replace(/[^А-Яа-я\s]/, '');
       });
     });
@@ -272,7 +272,7 @@ class AppData {
   blockSumValue() {
     const placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
     placeSum.forEach((item) => {
-      item.addEventListener('input', function () {
+      item.addEventListener('input', () => {
         item.value = item.value.replace(/[^0-9]/, '');
       });
     });
@@ -296,16 +296,16 @@ class AppData {
     }
   }
 
-  checkPercent() {
-    depositPercent.addEventListener('input', function () {
-      depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
-    });
-    if (depositPercent.value >= 0 || depositPercent.value <= 100) {
-      alert("Введите корректное значение в поле проценты");
-      appData.blockStart();
-    }
-    depositPercent.addEventListener('input', this.checkPercent);
-  }
+  // checkPercent() {
+  //   depositPercent.addEventListener('input', () => {
+  //     depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
+  //   });
+  //   if (depositPercent.value >= 0 || depositPercent.value <= 100) {
+  //     alert("Введите корректное значение в поле проценты");
+  //     appData.blockStart();
+  //   }
+  //   depositPercent.addEventListener('input', this.checkPercent);
+  // }
 
   depositHundler() {
     if (depositCheck.checked) {
@@ -337,7 +337,7 @@ class AppData {
 
 const appData = new AppData();
 
-appData.checkPercent();
+// appData.checkPercent();
 
 appData.eventsListeners();
 appData.blockStart();
