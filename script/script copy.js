@@ -34,9 +34,7 @@ let calc = document.getElementById('start'),
   cancel = document.getElementById('cancel'),
   incomeItem = document.querySelectorAll('.income-items'),
   incomeTitle = document.querySelectorAll('.income-title'),
-  // expensesTitle = document.querySelectorAll('.expenses-title'),
   classData = document.querySelector('.data'),
-
   resultTotal = document.querySelectorAll('.result-total'),
   allInput = document.querySelectorAll('input'),
   depositBank = document.querySelector('.deposit-bank'),
@@ -44,6 +42,8 @@ let calc = document.getElementById('start'),
   depositPercent = document.querySelector('.deposit-percent'),
   inputTypeText = classData.querySelectorAll('input[type="text"]');
 
+let placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
+let placeName = classData.querySelectorAll('input[placeholder=Наименование]');
 
 const isNumber = (n) => {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -124,7 +124,11 @@ class AppData {
   addExpensesBlock() {
     const cloneExpensesItems = expensesItems[0].cloneNode(true);
 
+    cloneExpensesItems.querySelector('.expenses-title').value = '';
+    cloneExpensesItems.querySelector('.expenses-amount').value = '';
+
     expensesItems[0].parentNode.insertBefore(cloneExpensesItems, expensesPlus);
+
     expensesItems = document.querySelectorAll('.expenses-items');
 
     if (expensesItems.length === 3) {
@@ -132,11 +136,14 @@ class AppData {
     }
   }
   addIncomeBlock() {
-    const cloneIncomeItems = incomeItems[0].cloneNode(true);
+    let cloneIncomeItems = incomeItems[0].cloneNode(true);
+
+    cloneIncomeItems.querySelector('.income-title').value = '';
+    cloneIncomeItems.querySelector('.income-amount').value = '';
 
     incomeItems[0].parentNode.insertBefore(cloneIncomeItems, incomePlus);
-    incomeItems = document.querySelectorAll('.income-items');
 
+    incomeItems = document.querySelectorAll('.income-items');
     if (incomeItems.length === 3) {
       incomePlus.style.display = 'none';
     }
@@ -262,7 +269,7 @@ class AppData {
     incomePlus.style.display = 'block';
   }
   blockInputValue() {
-    const placeName = classData.querySelectorAll('input[placeholder=Наименование]');
+    placeName = classData.querySelectorAll('input[placeholder=Наименование]');
     placeName.forEach((item) => {
       item.addEventListener('input', () => {
         item.value = item.value.replace(/[^А-Яа-я\s]/, '');
@@ -270,7 +277,7 @@ class AppData {
     });
   }
   blockSumValue() {
-    const placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
+    placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
     placeSum.forEach((item) => {
       item.addEventListener('input', () => {
         item.value = item.value.replace(/[^0-9]/, '');
@@ -322,6 +329,7 @@ class AppData {
       depositBank.removeEventListener('change', this.changePercent);
     }
   }
+
   eventsListeners() {
     calc.addEventListener('click', this.start.bind(this));
     cancel.addEventListener('click', this.reset.bind(this));
@@ -344,3 +352,7 @@ appData.blockStart();
 
 appData.blockInputValue();
 appData.blockSumValue();
+
+// 1) Реализовать так, чтобы инпуты добавлялись пустые без value при добавлении новых полей в обязательных расходах и дополнительных доходах 
+// 2) Поля с placeholder="Наименование" разрешить ввод только русских букв пробелов и знаков препинания
+// 3) Поля с placeholder="Сумма" разрешить ввод только цифр
