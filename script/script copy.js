@@ -82,19 +82,19 @@ class AppData {
     });
   }
 
-  unblockStart() { // разблокировка кнопки
-    calc.setAttribute('disabled', 1);
-    calc.style.cssText = `cursor: pointer`;
-    // salaryAmount.addEventListener('input', e => {
-    //   if (e.target.value.trim() !== '') {
-    //     calc.removeAttribute('disabled');
-    //     calc.style.cssText = `cursor: pointer`;
-    //   } else {
-    //     calc.setAttribute('disabled', 1);
-    //     calc.style.cssText = `cursor: not-allowed`;
-    //   }
-    // });
-  }
+  // unblockStart() { // разблокировка кнопки
+  //   calc.setAttribute('disabled', 1);
+  //   calc.style.cssText = `cursor: pointer`;
+  //   // salaryAmount.addEventListener('input', e => {
+  //   //   if (e.target.value.trim() !== '') {
+  //   //     calc.removeAttribute('disabled');
+  //   //     calc.style.cssText = `cursor: pointer`;
+  //   //   } else {
+  //   //     calc.setAttribute('disabled', 1);
+  //   //     calc.style.cssText = `cursor: not-allowed`;
+  //   //   }
+  //   // });
+  // }
 
   start() {
     this.budget = +salaryAmount.value;
@@ -117,6 +117,8 @@ class AppData {
     this.blockInputValue();
 
     this.checkPercent();
+
+    this.unblockStart();
   }
   blockInput() {
     inputTypeText = classData.querySelectorAll('input[type="text"]');
@@ -325,7 +327,8 @@ class AppData {
         alert("Введите корректное значение в поле проценты");
         appData.blockStart();
       } else {
-        appData.unblockStart();
+        // appData.unblockStart();
+
       }
     });
   }
