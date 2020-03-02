@@ -118,7 +118,7 @@ class AppData {
 
     this.checkPercent();
 
-    this.unblockStart();
+    // this.unblockStart();
   }
   blockInput() {
     inputTypeText = classData.querySelectorAll('input[type="text"]');
@@ -323,8 +323,9 @@ class AppData {
   checkPercent() {
     depositPercent.addEventListener('input', () => {
       depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
-      if (depositPercent.value >= 0 && depositPercent.value >= 100) {
+      if (depositPercent.value >= 0 && depositPercent.value > 100) {
         alert("Введите корректное значение в поле проценты");
+        depositPercent.value = '';
         appData.blockStart();
       } else {
         // appData.unblockStart();
