@@ -303,16 +303,16 @@ class AppData {
     }
   }
 
-  // checkPercent() {
-  //   depositPercent.addEventListener('input', () => {
-  //     depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
-  //   });
-  //   if (depositPercent.value >= 0 || depositPercent.value <= 100) {
-  //     alert("Введите корректное значение в поле проценты");
-  //     appData.blockStart();
-  //   }
-  //   depositPercent.addEventListener('input', this.checkPercent);
-  // }
+  checkPercent() {
+    depositPercent.addEventListener('input', () => {
+      depositPercent.value = depositPercent.value.replace(/[^0-9]/, '');
+    });
+    if (depositPercent.value >= 0 || depositPercent.value <= 100) {
+      alert("Введите корректное значение в поле проценты");
+      appData.blockStart();
+    }
+    depositPercent.addEventListener('input', this.checkPercent);
+  }
 
   depositHundler() {
     if (depositCheck.checked) {
@@ -345,7 +345,7 @@ class AppData {
 
 const appData = new AppData();
 
-// appData.checkPercent();
+appData.checkPercent();
 
 appData.eventsListeners();
 appData.blockStart();
@@ -353,6 +353,3 @@ appData.blockStart();
 appData.blockInputValue();
 appData.blockSumValue();
 
-// 1) Реализовать так, чтобы инпуты добавлялись пустые без value при добавлении новых полей в обязательных расходах и дополнительных доходах 
-// 2) Поля с placeholder="Наименование" разрешить ввод только русских букв пробелов и знаков препинания
-// 3) Поля с placeholder="Сумма" разрешить ввод только цифр
