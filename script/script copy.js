@@ -1,6 +1,6 @@
 'use strict';
 
-let calc = document.getElementById('start'),
+const calc = document.getElementById('start'),
   btnPlus = document.getElementsByTagName('button'),
   incomePlus = btnPlus[0],
   expensesPlus = btnPlus[1],
@@ -25,8 +25,6 @@ let calc = document.getElementById('start'),
   salaryAmount = document.querySelector('.salary-amount'),
   incomeAmount = document.querySelector('.income-amount'),
   additionalIncomeItem2 = document.querySelector('.additional_income-item'),
-  expensesItems = document.querySelectorAll('.expenses-items'),
-  incomeItems = document.querySelectorAll('.income-items'),
   additionalExpensesItem = document.querySelector('.additional_expenses-item'), // возможные расходы
   targetAmount = document.querySelector('.target-amount'),
   periodSelect = document.querySelector('.period-select'),
@@ -39,11 +37,13 @@ let calc = document.getElementById('start'),
   allInput = document.querySelectorAll('input'),
   depositBank = document.querySelector('.deposit-bank'),
   depositAmount = document.querySelector('.deposit-amount'),
-  depositPercent = document.querySelector('.deposit-percent'),
-  inputTypeText = classData.querySelectorAll('input[type="text"]');
+  depositPercent = document.querySelector('.deposit-percent');
 
-let placeSum = classData.querySelectorAll('input[placeholder=Сумма]');
-let placeName = classData.querySelectorAll('input[placeholder=Наименование]');
+let expensesItems = document.querySelectorAll('.expenses-items'),
+  incomeItems = document.querySelectorAll('.income-items'),
+  inputTypeText = classData.querySelectorAll('input[type="text"]'),
+  placeSum = classData.querySelectorAll('input[placeholder=Сумма]'),
+  placeName = classData.querySelectorAll('input[placeholder=Наименование]');
 
 const isNumber = (n) => {
   return !isNaN(parseFloat(n)) && isFinite(n);
