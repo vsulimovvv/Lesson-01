@@ -113,8 +113,10 @@ class AppData {
   }
   addExpensesBlock() {
     const cloneExpensesItems = expensesItems[0].cloneNode(true);
+
     cloneExpensesItems.querySelector('.expenses-title').value = '';
     cloneExpensesItems.querySelector('.expenses-amount').value = '';
+
     expensesItems[0].parentNode.insertBefore(cloneExpensesItems, expensesPlus);
     expensesItems = document.querySelectorAll('.expenses-items');
     if (expensesItems.length === 3) {
@@ -123,6 +125,9 @@ class AppData {
   }
   addIncomeBlock() {
     const cloneIncomeItems = incomeItems[0].cloneNode(true);
+
+    cloneIncomeItems.querySelector('.income-title').value = '';
+    cloneIncomeItems.querySelector('.income-amount').value = '';
 
     incomeItems[0].parentNode.insertBefore(cloneIncomeItems, incomePlus);
     incomeItems = document.querySelectorAll('.income-items');
@@ -160,7 +165,7 @@ class AppData {
         _this.income[itemIncome] = +cashIncome;
       }
     });
-    
+
     for (let key in appData.income) {
       _this.incomeMonth += appData.income[key];
     }
@@ -318,8 +323,10 @@ class AppData {
     } else {
       depositBank.style.display = 'none';
       depositAmount.style.display = 'none';
+      depositPercent.style.display = 'none';
       depositBank.value = '';
       depositAmount.value = '';
+      depositPercent.value = '';
       this.deposit = false;
       depositBank.removeEventListener('change', this.changePercent);
     }
