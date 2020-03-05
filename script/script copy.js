@@ -138,6 +138,9 @@ class AppData {
       let itemExpenses = item.querySelector('.expenses-title').value;
       let cashExpenses = item.querySelector('.expenses-amount').value;
 
+      itemExpenses = '';
+      cashExpenses = '';
+
       if (itemExpenses !== '' && cashExpenses !== '') {
         _this.expenses[itemExpenses] = +cashExpenses;
       }
@@ -146,12 +149,18 @@ class AppData {
   getIncome() {
     const _this = this;
     incomeItems.forEach(function (item) {
-      const itemIncome = item.querySelector('.income-title').value;
-      const cashIncome = item.querySelector('.income-amount').value;
+
+      let itemIncome = item.querySelector('.income-title').value;
+      let cashIncome = item.querySelector('.income-amount').value;
+  
+      itemIncome = '';
+      cashIncome = '';
+
       if (itemIncome !== '' && cashIncome !== '') {
-        appData.income[itemIncome] = +cashIncome;
+        _this.income[itemIncome] = +cashIncome;
       }
     });
+    
     for (let key in appData.income) {
       _this.incomeMonth += appData.income[key];
     }
